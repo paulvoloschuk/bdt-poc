@@ -1,0 +1,18 @@
+/* Constants ================================================================ */
+@import '~styles/constants.scss';
+
+/* Component styles ========================================================= */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 0 5px;
+}
+.container + .container {
+  border-top: 1px dotted $bgColor-main;
+}
+.label {
+  margin: 0;
+  padding: 5px;
+}

@@ -1,0 +1,17 @@
+/* Constants ================================================================ */
+@import '~styles/constants.scss';
+
+/* Component styles ========================================================= */
+.container {
+  padding: 20px;
+  margin: 10px;
+  border: none;
+  background: $bgColor-submain;
+}
+
+.caption {
+  margin: 0 0 10px 0;
+  padding: 0 0 10px 0;
+  font-size: 120%;
+  border-bottom: 1px solid $bgColor-main;
+}
