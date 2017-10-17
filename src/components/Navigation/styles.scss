@@ -1,0 +1,16 @@
+.container {
+  list-style: none;
+  display: flex !important;
+  flex-flow: row nowrap;
+  margin: 0;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.item {
+  padding: inherit;
+  &__active a {
+    color: white;
+  }
+}

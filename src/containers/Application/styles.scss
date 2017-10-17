@@ -1,0 +1,29 @@
+/* Constants ================================================================ */
+@import '~styles/constants.scss';
+
+/* Fonts ==================================================================== */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+/* Basic styles ============================================================= */
+.container {
+  color: white;
+  background: $bgColor-main;
+  font-family: $fontFamily-main;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.content {
+  min-height: calc(100vh - 190px);
+  color: $textColor-main;
+}
+
+a {
+  color: $textColor-link;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

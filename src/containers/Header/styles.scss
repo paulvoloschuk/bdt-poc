@@ -1,0 +1,23 @@
+.container {
+  background-color: rgb(46, 46, 48);
+  color: white;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  > * {
+    flex: 1 1 100px;
+    min-height: 60px;
+    display: block;
+  }
+}
+
+.logo {
+  max-width: 100px;
+  position: relative;
+  left: -5px;
+  top: 5px;
+}
