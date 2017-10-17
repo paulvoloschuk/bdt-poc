@@ -3,7 +3,7 @@
   "homepage": "https://paulvoloschuk.github.io/bdt-poc",
   "description": "Concept application",
   "author": "Paul Voloschuk paul.voloschuk@gmail.com",
-  "license": "none",
+  "license": "MIT",
   "version": "0.1.0",
   "private": true,
   "repository": {
