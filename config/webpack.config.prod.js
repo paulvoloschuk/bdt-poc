@@ -91,6 +91,8 @@ module.exports = {
     extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
       index: path.resolve(__dirname, '../src/'),
+      pages: path.resolve(__dirname, '../src/pages/'),
+      styles: path.resolve(__dirname, '../src/styles/'),
       modules: path.resolve(__dirname, '../src/modules/'),
       components: path.resolve(__dirname, '../src/components/'),
       containers: path.resolve(__dirname, '../src/containers/'),
@@ -209,6 +211,24 @@ module.exports = {
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },
+          {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+              fallback: 'style-loader',
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: {
+                    modules: true,
+                    sourceMap: true,
+                    importLoaders: 2,
+                    localIdentName: '[name]__[local]__[hash:base64:5]'
+                  }
+                },
+                'sass-loader'
+              ]
+            })
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
