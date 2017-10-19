@@ -1,0 +1,20 @@
+/* Constants ================================================================ */
+@import '~styles/constants.scss';
+
+/* Common styles ============================================================ */
+.container {
+  padding: 0 20px;
+}
+
+.placeholder {
+  background: $bgColor-submain;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.07);
+  border: solid 1px #ebebeb;
+  img {
+    width: 200px;
+  }
+}

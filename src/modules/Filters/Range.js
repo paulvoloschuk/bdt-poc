@@ -8,7 +8,7 @@ class Range extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      min: 10,
+      min: 0,
       max: 100,
       input: {
         min: props.min,
@@ -36,7 +36,7 @@ class Range extends Component {
         maxContent = getNumberFromPercent(state.max) + ' $'
 
     return (
-      <div className={classes.rangeInput} ref="container">
+      <div className={classes.rangeInput} ref="container" >
         <input type="hidden" name={'min-' + props.id} value={state.input.min}/>
         <input type="hidden" name={'max-' + props.id} value={state.input.max}/>
         <span className={classes.valueMin}>{minContent}</span>
@@ -59,6 +59,7 @@ class Range extends Component {
     let {max, min} = this.props
     return (percent / 100 * (max - min) + min).toFixed()
   }
+
   dragStart(mode) {
     return event => {
       this.setState({
@@ -88,11 +89,11 @@ class Range extends Component {
       let cordinatesDifference = event.clientX - state.mousePress.start,
           percentageDifference = cordinatesDifference / refs.container.clientWidth * 100,
           currentPercentage = percentageDifference + state.currentPercentage,
+          currentInterval = state.max - state.min,
           injection = {}
 
       if(currentPercentage < 0) currentPercentage = 0
       else if(currentPercentage > 100) currentPercentage = 100
-
 
       injection[state.mousePress.mode] = currentPercentage
 
