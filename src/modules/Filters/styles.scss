@@ -1,0 +1,94 @@
+/* Constants ================================================================ */
+@import '~styles/constants.scss';
+
+/* Common styles ============================================================ */
+.container {
+  width: 200px;
+}
+
+/* Block styles ============================================================= */
+.block {
+  border: none;
+  padding: 0 0 15px 0;
+  margin: 0;
+
+  .caption {
+    text-transform: uppercase;
+    color: $textColor-filterCaption;
+    font-size: 90%;
+    margin: 5px 0;
+  }
+}
+
+/* CheckInput styles ======================================================== */
+.checkInput {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 30px;
+
+  input {
+    display: none;
+    &:checked + .indicator {
+      background-size: 100%;
+    }
+  }
+  .indicator {
+    width: 10px;
+    height: 10px;
+    border: 1px solid $textColor-filterCaption;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(/img/checkmark.svg);
+    background-size: 0.001%;
+    transition: background-size 300ms $easing-bounnce;
+  }
+  .title {
+    padding-left: 10px;
+  }
+  &:hover {
+    .indicator {
+      background-color: $bgColor-submain;
+    }
+  }
+}
+
+/* RangeInput styles ======================================================== */
+.rangeInput {
+  user-select: none;
+  height: 2px;
+  background: $bgColor-rangeLine;
+  margin: 20px 0 40px 0;
+  position: relative;
+
+  .valueMin,
+  .valueMax {
+    font-size: 90%;
+    top: calc(100% + 20px);
+    position: absolute;
+  }
+  .valueMin {
+    left: 0;
+  }
+  .valueMax {
+    right: 0;
+  }
+
+  .line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: $textColor-link;
+  }
+
+  .limiter {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border: 2px solid $textColor-link;
+    border-radius: 50%;
+    background-color: $bgColor-main;
+  }
+}
