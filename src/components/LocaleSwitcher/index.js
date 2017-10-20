@@ -5,6 +5,7 @@ import translates from 'index/translations'
 import { setLanguage } from 'redux-i18n'
 import classes from './styles.scss'
 import { combineClasses as combine } from 'index/helpers'
+import clickOutside from 'react-onclickoutside'
 
 const locales = Object.keys(translates)
 
@@ -17,6 +18,7 @@ const locales = Object.keys(translates)
     changeLocale: locale => dispath(setLanguage(locale))
   })
 )
+@clickOutside
 class LocaleSwitcher extends Component {
   constructor() {
     super()
@@ -25,10 +27,9 @@ class LocaleSwitcher extends Component {
     }
 
     // Bind Hack
-    this.clickHandler = this.clickHandler.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
   render() {
-    console.log(this.state);
     let {open} = this.state,
         {currentLang} = this.props,
         containerStateClass = open ? classes.languageList__open : null,
@@ -39,7 +40,7 @@ class LocaleSwitcher extends Component {
             return (
               <li
                 className={combine(classes.languageList__item, itemStateClass)}
-                onClick={this.clickHandler(item)}
+                onClick={this.handleClick(item)}
                 key={index}
               >
                 {item}
@@ -54,9 +55,11 @@ class LocaleSwitcher extends Component {
       </div>
     )
   }
-  clickHandler(localState) {
+  handleClickOutside() {
+    if (this.state.open) this.setState({open: false})
+  }
+  handleClick(localState) {
     return event => {
-      console.log(localState);
       if (!this.state.open) {
         this.setState({open: true})
       }
