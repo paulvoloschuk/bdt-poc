@@ -10,7 +10,7 @@ import translations from './translations'
 import detectLocale from 'browser-locale'
 import I18n from 'redux-i18n'
 
-export const currentLocale = detectLocale()
+export const currentLocale = detectLocale().replace('-', '_')
 const renderTarget = document.getElementById('application')
 
 ReactDOM.render (
