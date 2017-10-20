@@ -10,7 +10,13 @@
 
 .item {
   padding: inherit;
+  a {
+    transition: color 400ms ease-in-out;
+  }
   &__active a {
     color: white;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
