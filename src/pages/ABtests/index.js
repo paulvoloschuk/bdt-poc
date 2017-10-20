@@ -12,11 +12,12 @@ class ABtests extends Component {
       <div className={classes.container}>
         <h2>AB test editing panel</h2>
         <Fieldset name="Basics">
-          <ConfigInput name="layoutCaptions" text="Show layout captions" />
+          <ConfigInput name="categoriesEverywhere" text="Show categories everywhere" />
         </Fieldset>
         <Fieldset name="Store">
           <ConfigInput name="savings" text="Show savings" />
           <ConfigInput name="callToAction" text="Show 'Call to action' button" />
+          <ConfigInput name="fixedFilter" text="Make filter fixed" />
         </Fieldset>
       </div>
     )

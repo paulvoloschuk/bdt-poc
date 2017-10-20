@@ -33,7 +33,8 @@ const items = [
 @connect (
   state => ({
     location: state.router.location.pathname,
-    categoryId: state.filter.category
+    categoryId: state.filter.category,
+    abTests: state.abTests
   }),
   dispatch => ({
     changeCategory: id => () => dispatch({
@@ -44,12 +45,16 @@ const items = [
 )
 class Categories extends Component {
   render () {
-    let { changeCategory } = this.props
+    let { changeCategory, abTests } = this.props,
+        isStorePage = this.props.location === '/store',
+        hideBlock = (!!abTests.categoriesEverywhere || isStorePage) ? null : classes.container_hidden,
+        ulCssClass = `${classes.container} ${hideBlock}`
+
     return (
       <nav>
-        <ul className={classes.container}>
+        <ul className={ulCssClass}>
           {items.map((item, index) => {
-            let activeClass = (this.props.location === '/store' && this.props.categoryId === index)
+            let activeClass = (isStorePage && this.props.categoryId === index)
               ? classes.link__active
               : '';
             return (
