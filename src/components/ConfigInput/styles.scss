@@ -1,6 +1,19 @@
 /* Constants ================================================================ */
 @import '~styles/constants.scss';
 
+/* Keyframes ================================================================ */
+@keyframes slideOut {
+  from {
+    height: 0;
+    color: transparent;
+  }
+  to {
+    height: 30px;
+    color: black;
+  }
+}
+
+
 /* Component styles ========================================================= */
 .container {
   display: flex;
@@ -8,6 +21,13 @@
   align-items: center;
   margin: 5px 0;
   padding: 0 5px;
+  height: 30px;
+  overflow: hidden;
+  animation-name: slideOut;
+  animation-duration: 200ms;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 .container + .container {
   border-top: 1px dotted $bgColor-main;
