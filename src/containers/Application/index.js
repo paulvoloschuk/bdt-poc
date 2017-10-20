@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import Header from 'containers/Header'
 import Footer from 'containers/Footer'
 import Wrapper from 'components/Wrapper'
@@ -12,6 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className={classes.container}>
+        <Helmet>
+          <meta charSet="utf-8" />
+        </Helmet>
         <Header />
         <main className={classes.content}>
           <Wrapper>
