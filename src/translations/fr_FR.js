@@ -1,7 +1,8 @@
 const locale = {
-  'homepage':    "Homepage",
+  'homepage':     "Homepage",
   'storepage':    "Storepage",
-  'ab_tests':    "AB Tests",
+  'ab_tests':     "AB Essais",
+  'filter_by':    "Filtrer par"
 }
 
 export default locale

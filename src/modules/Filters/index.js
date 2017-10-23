@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
 import Block from './Block'
@@ -9,10 +10,11 @@ import classes from './styles.scss'
 
 class Filters extends Component {
   render() {
+    let {t} = this.context
     return (
       <form ref="dataContainer" className={classes.container} onChange={this.updateHandler.bind(this)}>
         <h3>
-          Filter by
+          {t('filter_by')}
         </h3>
         <Block name="pricing">
           <Range min={100} max={1000} minInterval={20} id="price"/>
@@ -32,6 +34,10 @@ class Filters extends Component {
   updateHandler() {
     console.log(this.refs.dataContainer);
   }
+}
+
+Filters.contextTypes = {
+  t: PropTypes.func.isRequired
 }
 
 export default Filters
