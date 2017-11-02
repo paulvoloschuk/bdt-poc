@@ -2,10 +2,10 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import Wrapper from 'components/Wrapper'
+import Logo from 'components/Logo'
 import Navigation from 'components/Navigation'
 import Categories from 'containers/Categories'
 import classes from './styles.scss'
-
 
 class Header extends Component {
   render() {
@@ -14,7 +14,7 @@ class Header extends Component {
       <header className={classes.container}>
         <Wrapper className={classes.wrapper}>
           <Link to="/" className={classes.logo}>
-            <img src="/img/logo_us.svg" alt="logo" />
+            <Logo />
           </Link>
           <Navigation>
             <Link to="/" >

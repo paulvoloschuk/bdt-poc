@@ -1,0 +1,68 @@
+@import "~styles/constants";
+@import "~styles/mixins";
+@import "~styles/keyframes";
+
+/* Loader =================================================================== */
+.loader {
+  position: relative;
+  margin-bottom: 1em;
+  > * {
+    background-color: $bgColor-rangeLine;
+  }
+  &::after {
+    @include pseudoBasic;
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, rgba($bgColor-main, 0) 0%,rgba($bgColor-main, 0.6) 50%,rgba($bgColor-main, 0) 100%);
+    animation: dealsLoading 1s infinite;
+  }
+}
+.caption {
+  height: 1em;
+  width: 70px;
+  margin-bottom: 1em;
+}
+
+.slider {
+  position: relative;
+  height: 20px;
+  background-color: transparent;
+  .line {
+    background-color: $bgColor-rangeLine;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: calc(50% - 1px);
+    left: 0;
+  }
+  .switcher {
+    background-color: $bgColor-rangeLine;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;
+    top: calc(50% - 10px);
+    &:last-of-type {
+      right: 0;
+    }
+  }
+}
+
+.checkLine {
+  background-color: transparent;
+  & > * {
+    background-color: $bgColor-rangeLine;
+    height: 1em;
+    display: inline-block;
+  }
+  .input {
+    width: 1em;
+    margin-right: 1em;
+  }
+  .text {
+    width: 5em;
+  }
+}

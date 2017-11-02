@@ -1,3 +1,8 @@
+/* Import =================================================================== */
+@import '~styles/mediaQueries.scss';
+@import '~styles/constants.scss';
+
+/* Common styles ============================================================ */
 .container {
   list-style: none;
   display: flex !important;
@@ -6,6 +11,10 @@
   padding: 0 20px;
   align-items: center;
   justify-content: flex-end;
+  white-space: nowrap;
+  @include breakPoint(false, $screenSize-mobile) {
+
+  }
 }
 
 .item {

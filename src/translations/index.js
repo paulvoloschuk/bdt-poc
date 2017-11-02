@@ -1,11 +1,11 @@
-import en_US from './en_US'
-import de_DE from './de_DE'
-import fr_FR from './fr_FR'
+import en from './en'
+import de from './de'
+import fr from './fr'
 
 const translations = {
-  en_US,
-  de_DE,
-  fr_FR
+  en,
+  de,
+  fr
 }
 
 

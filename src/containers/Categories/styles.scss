@@ -1,4 +1,5 @@
-/* Constants ================================================================ */
+/* Import =================================================================== */
+@import '~styles/mediaQueries.scss';
 @import '~styles/constants.scss';
 
 /* Common styles ============================================================ */
@@ -14,11 +15,19 @@
   background: white;
   transition: all 200ms ease-in-out;
   color: rgb(31, 31, 31);
+  @include breakPoint(false, $screenSize-mobile) {
+    width: 100%;
+    overflow-x: scroll;
+
+  }
 
 
   .item {
     flex: 1 100%;
     transition: opacity 200ms linear;
+    @include breakPoint(false, $screenSize-mobile) {
+      min-width: 100px;
+    }
   }
 
   .link {

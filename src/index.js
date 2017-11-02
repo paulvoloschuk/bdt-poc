@@ -12,7 +12,7 @@ import translations from './translations'
 import detectLocale from 'browser-locale'
 import I18n from 'redux-i18n'
 
-export const currentLocale = detectLocale().replace('-', '_')
+export const currentLocale = detectLocale().match(/^[a-z]{2}/)[0]
 const renderTarget = document.getElementById('application')
 
 // Syncronization of State between tabs
@@ -22,7 +22,7 @@ store.subscribe(createStoragePusher(store))
 
 ReactDOM.render (
   <Provider store={store}>
-    <I18n translations={translations} initialLang={currentLocale} fallbackLang="en_US">
+    <I18n translations={translations} initialLang={currentLocale} fallbackLang="en">
       <Router history={history}>
         <Application />
       </Router>

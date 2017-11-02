@@ -1,0 +1,70 @@
+@import "~styles/constants";
+@import "~styles/mixins";
+@import "~styles/keyframes";
+@import "~styles/mediaQueries";
+
+.item {
+  flex: 1 1 100px;
+  padding: 10px;
+  min-width: 25%;
+  box-sizing: border-box;
+  @include breakPoint($screenSize-tablet, $screenSize-desktop) {
+    min-width: 33.3%;
+  }
+  @include breakPoint(false, $screenSize-tablet) {
+    min-width: 50%;
+  }
+}
+
+.bg {
+  position: relative;
+  overflow: hidden;
+  background-color: $bgColor-submain;
+  border: 1px solid $bgColor-rangeLine;
+  padding: 15px;
+  text-align: center;
+  > * {
+    background-color: $bgColor-rangeLine;
+    margin: 0 auto;
+    + * {
+      margin-top: 0.5em;
+    }
+  }
+  &::after {
+    @include pseudoBasic;
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,.6) 50%,rgba(255,255,255,0) 100%);
+    animation: dealsLoading 1s infinite;
+  }
+}
+
+.image {
+  width: 70%;
+  max-width: 150px;
+  height: 100px;
+}
+
+.price {
+  width: 40px;
+  height: 1.5em;
+}
+
+.text {
+  width: 100%;
+  height: 1em;
+}
+
+.button {
+  width: 100%;
+  height: 2em;
+}
+
+.divider {
+  height: 1px;
+  width: calc(100% + 30px);
+  margin: 1em 0 1em -15px;
+}

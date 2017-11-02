@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import translates from 'index/translations'
 import { setLanguage } from 'redux-i18n'
@@ -35,10 +34,10 @@ class LocaleSwitcher extends Component {
         {currentLang} = this.props,
         containerStateClass = open ? classes.languageList__open : null,
         localeList = locales
-          .sort((a, b) => (a == currentLang) ? 1 : -1)
+          .sort((a, b) => (a === currentLang) ? 1 : -1)
           .map((item, index) => (
             <li
-              className={combine(classes.languageList__item, (item == currentLang || open) ? classes.languageList__item__shown : null)}
+              className={combine(classes.languageList__item, (item === currentLang || open) ? classes.languageList__item__shown : null)}
               onClick={this.handleClick(item)}
               key={index}
             >

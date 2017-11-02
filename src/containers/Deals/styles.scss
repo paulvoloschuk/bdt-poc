@@ -1,9 +1,12 @@
 /* Constants ================================================================ */
 @import '~styles/constants.scss';
+@import '~styles/mixins.scss';
 
 /* Common styles ============================================================ */
 .container {
   padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .placeholder {
@@ -16,5 +19,41 @@
   border: solid 1px #ebebeb;
   img {
     width: 200px;
+  }
+}
+
+.loadMoreContainer {
+  margin: 0 30px;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.loadMoreButton {
+  @extend .loadMoreContainer;
+  background-color: $bgColor-submain;
+  border: 1px solid $bgColor-rangeLine;
+  padding: 0 20px;
+  transition: all 100ms ease-in-out;
+  &:hover {
+    color: $textColor-link;
+    cursor: pointer;
+  }
+}
+
+.loadmoreLabel {
+  @extend .loadMoreContainer;
+  border: 1px solid transparent;
+  &::before {
+    @include pseudoBasic;
+    width: 4em;
+    height: 2em;
+    background-image: url(/img/loader.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }

@@ -26,8 +26,7 @@ class ConfigInput extends Component {
     )
   }
   toggleHandler() {
-    let {data, name} = this.props,
-        checked = !!data[name]
+    let {data, name} = this.props
 
     this.props.updateState({
       name: name,

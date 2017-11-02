@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
 
 import classes from './styles.scss'
 
@@ -32,13 +31,14 @@ class Range extends Component {
   }
   render() {
     let {props, state, getNumberFromPercent} = this,
-        minContent = getNumberFromPercent(state.min) + ' $',
-        maxContent = getNumberFromPercent(state.max) + ' $'
+        {t} = this.context,
+        minContent = getNumberFromPercent(state.min) + ' ' + t('currency'),
+        maxContent = getNumberFromPercent(state.max) + ' ' + t('currency')
 
     return (
       <div className={classes.rangeInput} ref="container" >
-        <input type="hidden" name={'min-' + props.id} value={state.input.min}/>
-        <input type="hidden" name={'max-' + props.id} value={state.input.max}/>
+        <input type="text" readOnly={true} name={'min-' + props.id} value={state.input.min}/>
+        <input type="text" readOnly={true} name={'max-' + props.id} value={state.input.max}/>
         <span className={classes.valueMin}>{minContent}</span>
         <span className={classes.valueMax}>{maxContent}</span>
         <div className={classes.line} style={{left: state.min  + '%', right: (100 - state.max)  + '%'}}/>
@@ -83,13 +83,13 @@ class Range extends Component {
     })
   }
   dragHandler(event) {
-    let {state, props, refs} = this
+    let {state, refs} = this
 
     if (state.mousePress) {
       let cordinatesDifference = event.clientX - state.mousePress.start,
           percentageDifference = cordinatesDifference / refs.container.clientWidth * 100,
           currentPercentage = percentageDifference + state.currentPercentage,
-          currentInterval = state.max - state.min,
+          // currentInterval = state.max - state.min,
           injection = {}
 
       if(currentPercentage < 0) currentPercentage = 0
@@ -110,6 +110,10 @@ Range.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
   minInterval: PropTypes.number
+}
+
+Range.contextTypes = {
+  t: PropTypes.func.isRequired
 }
 
 export default Range

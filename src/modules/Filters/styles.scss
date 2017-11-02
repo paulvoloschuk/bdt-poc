@@ -1,10 +1,14 @@
-/* Constants ================================================================ */
+/* Imports ================================================================== */
 @import '~styles/constants.scss';
+@import '~styles/mediaQueries.scss';
 
 /* Common styles ============================================================ */
 .container {
   width: 200px;
   user-select: none;
+  @include breakPoint(false, $screenSize-mobile) {
+    display: none;
+  }
 }
 
 /* Block styles ============================================================= */
@@ -61,6 +65,11 @@
   background: $bgColor-rangeLine;
   margin: 20px 0 40px 0;
   position: relative;
+
+  input {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   .valueMin,
   .valueMax {

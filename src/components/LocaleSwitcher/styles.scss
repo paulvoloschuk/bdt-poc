@@ -10,7 +10,7 @@
   transform: translateY(-50%);
   height: 30px;
   line-height: 30px;
-  width: 100px;
+  width: 70px;
   user-select: none;
 
   .languageList {
@@ -48,6 +48,7 @@
       height: 0;
       overflow: hidden;
       transition: all 200ms ease-in-out;
+      text-transform: uppercase;
 
       &__shown {
         height: 30px;
